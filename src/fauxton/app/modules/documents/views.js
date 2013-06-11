@@ -260,10 +260,18 @@ function(app, FauxtonAPI, Documents, pouchdb, Codemirror, JSHint) {
     },
 
     duplicate: function(event) {
-      FauxtonAPI.addNotification({
-        type: "warning",
-        msg: "Duplicate functionality coming soon."
-      });
+      event.preventDefault();
+
+      if (this.model.hasAttachments()) {
+        FauxtonAPI.addNotification({
+          type: "error",
+          msg: "Cannot duplicate a document with attachments."
+        });
+
+        return;
+      }
+
+      FauxtonAPI.triggerRouteEvent('duplicateDoc');
     },
 
     updateSelected: function (selected) {
@@ -507,12 +515,15 @@ function(app, FauxtonAPI, Documents, pouchdb, Codemirror, JSHint) {
     },
 
     saveDoc: function(event) {
-      var json, notification, that = this;
-      if (this.hasValidCode()) {
-        json = JSON.parse(this.editor.getValue());
-        this.model.clear({silent:true});
-        this.model.set(json);
+      var json, notification, 
+          that = this,
+          validDoc = this.getDocFromEditor();
+
+      if (validDoc) {
+        this.getDocFromEditor();
+
         notification = FauxtonAPI.addNotification({msg: "Saving document."});
+
         this.model.save().then(function () {
           FauxtonAPI.navigate('/database/' + that.database.id + '/' + that.model.id);
         }).fail(function(xhr) {
@@ -530,6 +541,18 @@ function(app, FauxtonAPI, Documents, pouchdb, Codemirror, JSHint) {
           selector: "#doc .errors-container"
         });
       }
+    },
+
+    getDocFromEditor: function () {
+      if (!this.hasValidCode()) {
+        return false;
+      }
+
+      json = JSON.parse(this.editor.getValue());
+      this.model.clear({silent:true});
+      this.model.set(json);
+
+      return this.model;
     },
 
     hasValidCode: function() {

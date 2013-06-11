@@ -52,7 +52,8 @@ function(app, FauxtonAPI, Documents, Databases) {
     },
 
     events: {
-      "route:reRenderDoc": "reRenderDoc"
+      "route:reRenderDoc": "reRenderDoc",
+      "route:duplicateDoc": "duplicateDoc"
     },
 
     crumbs: function() {
@@ -73,7 +74,6 @@ function(app, FauxtonAPI, Documents, Databases) {
 
     reRenderDoc: function () {
       this.docView.forceRender();
-      console.log('rerender');
     },
 
     field_editor: function(events) {
@@ -81,6 +81,33 @@ function(app, FauxtonAPI, Documents, Databases) {
       this.docView = this.setView("#dashboard-content", new Documents.Views.DocFieldEditor({
         model: this.doc
       }));
+    },
+
+    duplicateDoc: function () {
+      var currentDoc = this.docView.getDocFromEditor();
+
+      if (!currentDoc) {
+        return FauxtonAPI.addNotification({
+          msg: "Please fix the JSON errors and try again.",
+          type: "error",
+          selector: "#doc .errors-container"
+        });
+      }
+
+      var duplicateAttrs = currentDoc.toJSON();
+
+      delete duplicateAttrs._id;
+      delete duplicateAttrs._rev;
+
+      var database = this.database;
+          doc = this.doc = new Documents.NewDoc(duplicateAttrs, {database: this.database});
+
+      doc.fetch().then(function () {
+        doc.save().then(function () {
+          FauxtonAPI.navigate('/database/' + database.id + '/' + doc.id, {trigger: true});
+        });
+      });
+
     },
 
     apiUrl: function() {
