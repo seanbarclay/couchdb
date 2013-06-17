@@ -45,12 +45,12 @@ function(app, Backbone) {
   });
 
   Fauxton.NavBar = Backbone.View.extend({
+    className:"navbar",
     template: "templates/fauxton/nav_bar",
     // TODO: can we generate this list from the router?
     navLinks: [
       {href:"#/_all_dbs", title:"Databases"}
     ],
-
     initialize: function() {
       this.on("link:add", this.render, this);
     },

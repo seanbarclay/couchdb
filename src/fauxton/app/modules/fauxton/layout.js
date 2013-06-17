@@ -25,6 +25,7 @@ function(Backbone) {
     this.apiBar = apiBar;
 
     this.layout = new Backbone.Layout({
+      className: 'row-fluid',
       template: "templates/layouts/with_sidebar",
 
       views: {
@@ -41,7 +42,6 @@ function(Backbone) {
 
   // creatings the dashboard object same way backbone does
   _.extend(Layout.prototype, {
-
     render: function () {
       return this.layout.render();
     },

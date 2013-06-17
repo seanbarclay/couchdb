@@ -34,67 +34,217 @@
 //
 // Breadcrumbs
 
-.breadcrumb {
-  background-color: transparent;
-  padding-left: 0px;
-  li {
-    color: @grayLight;
-    background-color: transparent;
-    a {
-      color: @grayLight;
-    }
-  }
-  .divider {
-    padding: 0 5px;
-    color: @grayLight; //ccc
-  }
-  .active {
-    color: @black;
-    font-weight: bold;
-  }
+// .breadcrumb {
+//   background-color: transparent;
+//   padding-left: 0px;
+//   li {
+//     color: @grayLight;
+//     background-color: transparent;
+//     a {
+//       color: @grayLight;
+//     }
+//   }
+//   .divider {
+//     padding: 0 5px;
+//     color: @grayLight; //ccc
+//   }
+//   .active {
+//     color: @black;
+//     font-weight: bold;
+//   }
+// }
+
+
+// // Navs
+// // ------
+
+// .nav-tabs > li > a {
+//   background-color: @grayLighter;
+// }
+
+// .dropdown-menu li > a {
+//   font-size: 12px;
+// }
+
+// .nav-list .divider {
+//   color: @grayLight;
+//   // This function is defined in mixins
+//   .nav-divider(transparent, @white);
+// }
+
+
+// // Misc
+// // ------
+
+// pre.view-code-error {
+//     color: red !important; // yuck
+// }
+
+// .CodeMirror-scroll {
+//     height: auto;
+//     overflow-y: visible;
+// }
+
+// #define-view form textarea.js-editor {
+//   width: 95%;
+// }
+
+// #define-view .CodeMirror-scroll {
+//   height: auto;
+//   min-height: 50px;
+// }
+
+/*define variable for color here, remove to seperate file later*/
+
+/*nav*/
+@primaryNav : #3A2C2B;
+@navBG: #AF2D24;
+@navBGHighlight: #E93F33;
+@navIconColor: #3A2C2B;
+@navIconHighlight: #FFFFFF;
+
+/*top header*/
+@breadcrumbBG: #F1F1F1;
+@breadcrumbText: #E93F33;
+@breadcrumbArrow: #999999;
+@breadcrumbBorder: #E93F33;
+
+/*background colors*/
+@background: #F2F2F2;
+@leftPanel: #E6E6E6;
+@rightPanel: #CBCBCB;
+@defaultText: #4D4D4D;
+@defaultHTag: #333333;
+
+@saveButton: #80A221;
+
+
+
+.buttonStyle{
+
 }
 
 
-// Navs
-// ------
-
-.nav-tabs > li > a {
-  background-color: @grayLighter;
-}
-
-.dropdown-menu li > a {
-  font-size: 12px;
-}
-
-.nav-list .divider {
-  color: @grayLight;
-  // This function is defined in mixins
-  .nav-divider(transparent, @white);
-}
-
-
-// Misc
-// ------
-
-pre.view-code-error {
-    color: red !important; // yuck
-}
-
-.CodeMirror-scroll {
-    height: auto;
-    overflow-y: visible;
-}
-
-#define-view form textarea.js-editor {
-  width: 95%;
-}
-
-#define-view .CodeMirror-scroll {
-  height: auto;
-  min-height: 50px;
-}
-
+/* ajax loader */
 .loader {
   background: url('../img/loader.gif') center center no-repeat;
   min-height:  100px;
 }
+#app-container.loader{
+  min-height: 400px;
+  > *{
+    display: none;
+  }
+}
+
+#global-notifications{
+  position: fixed;
+  top: 0;
+  display: block;
+}
+
+#app-container{
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  > .row-fluid {
+    height: 100%;
+  }
+}
+
+
+/* Fixed side navigation */
+#primary-navbar {
+  height: 100%;
+  background-color: @primaryNav;
+  .closeMenu & {
+    width: 105px;
+    .nav{
+      li{
+        a{
+          // .hide-text; 
+        }
+      }
+    }
+  }
+
+  .navbar {
+    a.brand {
+      background: url(../img/minilogo.png) no-repeat 0 0;
+      display: block;
+      .hide-text;
+      margin: 15px;
+      height: 30px;
+      width: 30px;
+    }
+    nav {
+      .nav{
+        li{
+          padding: 15px 0px 15px 80px;
+          font-size: 19px;
+          width: 100%;
+          font-weight: normal;
+          font-family: helvetica;
+          box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          background-color: @navBG;
+          border-bottom:  1px solid @primaryNav;
+          a{
+            padding: 0;
+            color: #fff;
+            text-shadow: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+#dashboard {
+  .closeMenu & {
+    margin-left: 105px;
+  }
+  height: 100%;
+  z-index: 100;
+  padding: 0;
+  margin: 0;
+  box-shadow: -5px 0 15px -3px #333333;
+  position: relative;
+  #dashboard-content{
+    padding: 15px;
+  }
+}
+
+.fixed-header{
+  position: fixed;
+  top: 0;
+  border-bottom: 5px solid @breadcrumbBorder;
+  box-shadow: 0 4px 6px -6px #808080;
+}
+.content-area{
+  margin-top: 100px;
+}
+#breadcrumbs {
+   background-color: @breadcrumbBG;
+   padding: 15px 20px;
+   .breadcrumb {
+    margin-bottom: 0;
+    background-color: transparent;
+    padding: 0;
+    li {    
+      color: @breadcrumbText;
+      font-size: 30px;
+      text-shadow: none;
+    }
+   }
+}
+
+footer#mainFooter{
+  position: fixed;
+  bottom: 0;
+}
+
+

@@ -25,25 +25,18 @@
 
   <!-- Application styles. -->
   <link rel="stylesheet" href="<%= assets_root %>css/index.css">
-  <style type="text/css">
-    body {
-    padding-top: 60px;
-    padding-bottom: 40px;
-    }
-  </style>
-  <% if (base) { %>
-  <base href="<%= base %>"></base>
-  <% } %>
+    <% if (base) { %>
+    <base href="<%= base %>"></base>
+    <% } %>
 </head>
 
 <body id="home">
   <!-- Main container. -->
   <div role="main" id="main">
+    <!-- these are notifications that will appear as a fixed bar up top-->
     <div id="global-notifications" class="container errors-container"></div>
-    <div id="app-container"></div>
-    <hr>
-
-    <footer>
+    <div id="app-container" class="container-fluid"></div>
+    <footer id="mainFooter">
       <div id="footer-content" class="container"></div>
     </footer>
   </div>
