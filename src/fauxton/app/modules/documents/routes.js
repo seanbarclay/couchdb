@@ -128,10 +128,10 @@ function(app, FauxtonAPI, Documents, Databases) {
         database: this.data.database
       }));
 
-      this.setView("#tabs", new Documents.Views.Tabs({
-        collection: this.data.designDocs,
-        database: this.data.database
-      }));
+      // this.setView("#tabs", new Documents.Views.Tabs({
+      //   collection: this.data.designDocs,
+      //   database: this.data.database
+      // }));
     },
 
     establish: function () {

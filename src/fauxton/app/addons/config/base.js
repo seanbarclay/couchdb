@@ -21,7 +21,7 @@ define([
 
 function(app, FauxtonAPI, Config) {
   Config.initialize = function() {
-    FauxtonAPI.addHeaderLink({title: "Config", href: "#_config"});
+    FauxtonAPI.addHeaderLink({title: "Config", href: "#_config", icon:"fonticon-wrench"});
   };
 
   return Config;

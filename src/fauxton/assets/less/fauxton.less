@@ -21,6 +21,7 @@
 @import "logs.less";
 @import "prettyprint.less";
 @import "database.less";
+@import "icons.less";
 
 /*!
  *
@@ -137,10 +138,17 @@
   }
 }
 
-#global-notifications{
+
+#global-notifications {
   position: fixed;
-  top: 0;
+  top: 67px;
   display: block;
+  z-index: 10000000000000;
+  left: 340px;
+   .closeMenu & {
+    left: 140px;
+   }
+
 }
 
 #app-container{
@@ -165,7 +173,7 @@
     .nav{
       li{
         a{
-          // .hide-text; 
+          .hide-text; 
         }
       }
     }
@@ -183,6 +191,15 @@
     nav {
       .nav{
         li{
+          &.fonticon {
+            position: relative;
+            &:before {
+              position: absolute;
+              left: 35px;
+              font-size: 24px;
+              color: #fff;
+            }
+          }
           padding: 15px 0px 15px 80px;
           font-size: 19px;
           width: 100%;
@@ -192,6 +209,7 @@
           -moz-box-sizing: border-box;
           background-color: @navBG;
           border-bottom:  1px solid @primaryNav;
+          min-height: 55px;
           a{
             padding: 0;
             color: #fff;
@@ -204,28 +222,30 @@
 }
 
 #dashboard {
-  .closeMenu & {
-    margin-left: 105px;
-  }
   height: 100%;
   z-index: 100;
   padding: 0;
   margin: 0;
-  box-shadow: -5px 0 15px -3px #333333;
+  .box-shadow(-10px 0 15px -6px #333333);
   position: relative;
   #dashboard-content{
-    padding: 15px;
-  }
+      padding: 20px;
+    }
 }
 
 .fixed-header{
   position: fixed;
   top: 0;
   border-bottom: 5px solid @breadcrumbBorder;
-  box-shadow: 0 4px 6px -6px #808080;
+  .box-shadow(0 4px 6px -2px #808080);
+  left: auto;
+  .closeMenu & {
+    left: 105px;
+  }
+
 }
 .content-area{
-  margin-top: 100px;
+  margin-top: 60px;
 }
 #breadcrumbs {
    background-color: @breadcrumbBG;
@@ -241,6 +261,7 @@
     }
    }
 }
+
 
 footer#mainFooter{
   position: fixed;

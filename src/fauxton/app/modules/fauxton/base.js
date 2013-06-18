@@ -49,7 +49,7 @@ function(app, Backbone) {
     template: "templates/fauxton/nav_bar",
     // TODO: can we generate this list from the router?
     navLinks: [
-      {href:"#/_all_dbs", title:"Databases"}
+      {href:"#/_all_dbs", title:"Databases", icon: "fonticon-database"}
     ],
     initialize: function() {
       this.on("link:add", this.render, this);
