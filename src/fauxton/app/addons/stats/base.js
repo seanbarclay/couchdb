@@ -19,7 +19,7 @@ define([
 function(app, FauxtonAPI, Stats) {
 
   Stats.initialize = function() {
-    FauxtonAPI.addHeaderLink({title: "Statistics", href: "#stats", icon: "fonticon-database"});
+    FauxtonAPI.addHeaderLink({title: "Statistics", href: "#stats", icon: "fonticon-stats"});
   };
 
   return Stats;

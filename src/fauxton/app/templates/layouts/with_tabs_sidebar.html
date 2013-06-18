@@ -12,21 +12,28 @@ License for the specific language governing permissions and limitations under
 the License.
 -->
 
-<div id="primary-navbar" class="span2"></div>
-<div id="dashboard" class="container-fluid span10">
+<div id="primary-navbar"></div>
+<div id="dashboard" class="container-fluid">
 
-<div class="row-fluid fixed-header">
+<header class="row-fluid fixed-header">
   <div id="breadcrumbs" class="row-fluid"></div>
-</div>
+  <div id="api-navbar"></div>
+</header>
 
 
-  <div class="row-fluid content-area">
+  <div class="with-sidebar row-fluid content-area">
+
     <div id="tabs" class="row-fluid"></div>
-    <div id="sidebar-content" class="sidebar span3"></div>
-    <div id="dashboard-content" class="list span9 pull-right">
-      <div id="dashboard-upper-content"></div>
-      <div id="dashboard-lower-content"></div>
-    </div>
+
+    <aside id="sidebar-content" class="sidebar span3"></aside>
+
+    <section id="dashboard-content" class="list span9 pull-right">
+      <div class="inner">
+        <div id="dashboard-upper-content"></div>
+        <div id="dashboard-lower-content"></div>
+      </div>
+    </section>
+
   </div>
 
-<div id="api-navbar"></div>
+

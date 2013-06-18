@@ -167,6 +167,10 @@
 /* Fixed side navigation */
 #primary-navbar {
   height: 100%;
+  position: fixed;
+  width: 220px;
+  top: 0;
+  bottom: 0;
   background-color: @primaryNav;
   .closeMenu & {
     width: 105px;
@@ -227,11 +231,37 @@
   padding: 0;
   margin: 0;
   .box-shadow(-10px 0 15px -6px #333333);
-  position: relative;
-  #dashboard-content{
-      padding: 20px;
-    }
+  position: absolute;
+  left: 220px;
+  width: 100%;
+  .closeMenu & {
+    left: 105px;
+  }
 }
+#dashboard-content{
+  padding: 20px;
+  position: absolute;
+  left: 0;
+  .with-sidebar &{
+    .setLeft(3);
+  }
+  bottom: 0px;
+  top: 60px;
+  overflow: auto;
+  > div.inner {
+    display: block;
+  }
+}
+#sidebar-content {
+  position: absolute;
+  bottom: 0px;
+  top: 60px;
+  overflow: auto;
+  > div.inner {
+    display: block;
+  }
+}
+
 
 .fixed-header{
   position: fixed;
@@ -239,14 +269,9 @@
   border-bottom: 5px solid @breadcrumbBorder;
   .box-shadow(0 4px 6px -2px #808080);
   left: auto;
-  .closeMenu & {
-    left: 105px;
-  }
+  z-index: 100;
+}
 
-}
-.content-area{
-  margin-top: 60px;
-}
 #breadcrumbs {
    background-color: @breadcrumbBG;
    padding: 15px 20px;

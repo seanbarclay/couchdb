@@ -25,12 +25,18 @@ function(Backbone) {
     this.apiBar = apiBar;
 
     this.layout = new Backbone.Layout({
-      className: 'row-fluid',
       template: "templates/layouts/with_sidebar",
 
       views: {
         "#primary-navbar": this.navBar,
         "#api-navbar": this.apiBar
+      },
+      afterRender: function(){
+        $('#primary-navbar').on('click', function(e){
+          if(!$(e.target).is('a')){
+            $('body').toggleClass('closeMenu');
+          }
+        });
       }
     });
 
