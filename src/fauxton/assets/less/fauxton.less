@@ -23,90 +23,20 @@
 @import "database.less";
 @import "icons.less";
 
-/*!
- *
- * OVERRIDES
- *
- * Override styles from included less files here. Record where the style is
- * originally defined.
- *
- */
-
-//
-// Breadcrumbs
-
-// .breadcrumb {
-//   background-color: transparent;
-//   padding-left: 0px;
-//   li {
-//     color: @grayLight;
-//     background-color: transparent;
-//     a {
-//       color: @grayLight;
-//     }
-//   }
-//   .divider {
-//     padding: 0 5px;
-//     color: @grayLight; //ccc
-//   }
-//   .active {
-//     color: @black;
-//     font-weight: bold;
-//   }
-// }
-
-
-// // Navs
-// // ------
-
-// .nav-tabs > li > a {
-//   background-color: @grayLighter;
-// }
-
-// .dropdown-menu li > a {
-//   font-size: 12px;
-// }
-
-// .nav-list .divider {
-//   color: @grayLight;
-//   // This function is defined in mixins
-//   .nav-divider(transparent, @white);
-// }
-
-
-// // Misc
-// // ------
-
-// pre.view-code-error {
-//     color: red !important; // yuck
-// }
-
-// .CodeMirror-scroll {
-//     height: auto;
-//     overflow-y: visible;
-// }
-
-// #define-view form textarea.js-editor {
-//   width: 95%;
-// }
-
-// #define-view .CodeMirror-scroll {
-//   height: auto;
-//   min-height: 50px;
-// }
-
 /*define variable for color here, remove to seperate file later*/
+
+@red: #E93F33;
 
 /*nav*/
 @primaryNav : #3A2C2B;
 @navBG: #AF2D24;
-@navBGHighlight: #E93F33;
+@navBGHighlight: @red;
 @navIconColor: #3A2C2B;
 @navIconHighlight: #FFFFFF;
 
 /*top header*/
 @breadcrumbBG: #F1F1F1;
-@breadcrumbText: #E93F33;
+@breadcrumbText: @red;
 @breadcrumbArrow: #999999;
 @breadcrumbBorder: #E93F33;
 
@@ -123,13 +53,20 @@
 
 
 /*buttons */
-@redButton: #E93F33;
+@redButton: @red;
+@linkColor: @red;
 
 
-.buttonStyle{
 
+body {
+  background-color: #F2F2F2;
 }
 
+a,
+a:visited,
+a:active {
+  color: @linkColor;
+}
 
 /* ajax loader */
 .loader {
@@ -236,26 +173,13 @@
   .closeMenu & {
     margin-left: @collapsedNavWidth;
   }
-  &.one-pane{}
+  &.one-pane{
+    margin-top: 60px;
+  }
 }
 
 
 
-
-
-// #dashboard {
-//   height: 100%;
-//   z-index: 100;
-//   padding: 0;
-//   margin: 0;
-//   .box-shadow(-10px 0 15px -6px #333333);
-//   position: absolute;
-//   left: 220px;
-//   width: 100%;
-//   .closeMenu & {
-//     left: 105px;
-//   }
-// }
 #dashboard-content{
   padding: 20px;
   .with-sidebar &{
@@ -278,6 +202,9 @@
     display: block;
   }
 }
+
+
+/*tools*/
 
 
 .fixed-header{
@@ -317,6 +244,34 @@ footer#mainFooter{
   bottom: 0;
 }
 
+
+
+
+/*ONE PANEL TEMPLATE ONLY STYLES  AKA _all_dbs */
+
+.result-tools{
+  border-bottom: 1px solid #999999;
+  padding: 5px 0;
+  border-bottom: 1px solid #999999;
+  padding: 10px 0;
+  float: left;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+
+.navbar-form input{
+  .border-radius(0);
+  padding: 7px;
+  margin-top: -5px;
+}
+
+/*TABLE STYLES*/
+thead {border-bottom: 2px solid @redButton;}
+
+
+
+
 /*form elements and buttons*/
 .button{
   border: none;
@@ -332,3 +287,4 @@ footer#mainFooter{
     text-decoration: none;
   }
 }
+
