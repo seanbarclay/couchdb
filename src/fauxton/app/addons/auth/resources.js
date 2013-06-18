@@ -340,7 +340,7 @@ function (app, FauxtonAPI) {
     template: 'addons/auth/templates/nav_link',
 
     tagName: "li",
-    className: "dropdown fonticon fonticon-users",
+    className: "dropdown",
 
     events: {
       "click #user-create-admin": 'show_admin_modal',

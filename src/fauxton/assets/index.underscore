@@ -35,7 +35,7 @@
   <div role="main" id="main">
     <!-- these are notifications that will appear as a fixed bar up top-->
     <div id="global-notifications" class="container errors-container"></div>
-    <div id="app-container" class="container-fluid"></div>
+    <div id="app-container"></div>
     <footer id="mainFooter">
       <div id="footer-content" class="container"></div>
     </footer>

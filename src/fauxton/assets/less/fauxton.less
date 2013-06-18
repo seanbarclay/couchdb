@@ -119,6 +119,11 @@
 
 @saveButton: #80A221;
 
+@collapsedNavWidth: 100px;
+
+
+/*buttons */
+@redButton: #E93F33;
 
 
 .buttonStyle{
@@ -173,7 +178,7 @@
   bottom: 0;
   background-color: @primaryNav;
   .closeMenu & {
-    width: 105px;
+    width: @collapsedNavWidth;
     .nav{
       li{
         a{
@@ -195,16 +200,7 @@
     nav {
       .nav{
         li{
-          &.fonticon {
-            position: relative;
-            &:before {
-              position: absolute;
-              left: 35px;
-              font-size: 24px;
-              color: #fff;
-            }
-          }
-          padding: 15px 0px 15px 80px;
+          padding: 15px 0px 15px 60px;
           font-size: 19px;
           width: 100%;
           font-weight: normal;
@@ -218,6 +214,15 @@
             padding: 0;
             color: #fff;
             text-shadow: none;
+            &.fonticon {
+              position: relative;
+              &:before {
+                position: absolute;
+                left: -35px;
+                font-size: 24px;
+                color: #fff;
+              }
+            }
           }
         }
       }
@@ -226,34 +231,46 @@
 }
 
 #dashboard {
-  height: 100%;
-  z-index: 100;
-  padding: 0;
-  margin: 0;
-  .box-shadow(-10px 0 15px -6px #333333);
-  position: absolute;
-  left: 220px;
-  width: 100%;
+  position: relative;
+  margin-left: 220px;
   .closeMenu & {
-    left: 105px;
+    margin-left: @collapsedNavWidth;
   }
+  &.one-pane{}
 }
+
+
+
+
+
+// #dashboard {
+//   height: 100%;
+//   z-index: 100;
+//   padding: 0;
+//   margin: 0;
+//   .box-shadow(-10px 0 15px -6px #333333);
+//   position: absolute;
+//   left: 220px;
+//   width: 100%;
+//   .closeMenu & {
+//     left: 105px;
+//   }
+// }
 #dashboard-content{
   padding: 20px;
-  position: absolute;
-  left: 0;
   .with-sidebar &{
     .setLeft(3);
+    bottom: 0px;
+    top: 60px;
+    overflow: auto;
+    position: fixed;
   }
-  bottom: 0px;
-  top: 60px;
-  overflow: auto;
   > div.inner {
     display: block;
   }
 }
 #sidebar-content {
-  position: absolute;
+  position: fixed;
   bottom: 0px;
   top: 60px;
   overflow: auto;
@@ -270,6 +287,10 @@
   .box-shadow(0 4px 6px -2px #808080);
   left: auto;
   z-index: 100;
+  .one-pane & {
+    border: none;
+    .box-shadow(none);
+  }
 }
 
 #breadcrumbs {
@@ -283,6 +304,9 @@
       color: @breadcrumbText;
       font-size: 30px;
       text-shadow: none;
+      a{
+        color: @breadcrumbText;
+      }
     }
    }
 }
@@ -293,4 +317,18 @@ footer#mainFooter{
   bottom: 0;
 }
 
-
+/*form elements and buttons*/
+.button{
+  border: none;
+  background-color: @redButton;
+  color: #fff;
+  padding: 10px;
+  .icon {
+    margin-right: 10px;
+    font-size: 20px;
+  }
+  &:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+}
