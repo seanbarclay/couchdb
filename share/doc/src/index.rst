@@ -29,6 +29,7 @@ Contents
 
     intro
     api-basics
+    admin/index
     config/index
     replication
     replicator

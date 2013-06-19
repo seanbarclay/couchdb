@@ -39,8 +39,7 @@ closing of the `_users` database for each request requiring authentication::
 ``compaction_daemon``
 ---------------------
 
-Automatic compaction daemon. Could be configured with
-:ref:`compaction rules set <config/compaction>`::
+:ref:`Automatic compaction <compact/auto>` daemon::
 
   [daemons]
   compaction_daemon={couch_compaction_daemon, start_link, []}

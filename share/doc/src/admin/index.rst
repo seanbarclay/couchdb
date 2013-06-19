@@ -10,22 +10,14 @@
 .. License for the specific language governing permissions and limitations under
 .. the License.
 
-.. highlight:: ini
+.. _admin:
 
-.. _config/view_compaction:
+=============================
+CouchDB Administrator's Guide
+=============================
 
-``[view_compaction]`` :: Views Compaction Options
-====================================================
 
-These options are under ``[view_compaction]`` section.
+.. toctree::
+   :maxdepth: 2
 
-.. _config/view_compaction/keyvalue_buffer_size:
-
-``keyvalue_buffer_size`` :: Key-Values buffer size
---------------------------------------------------
-
-Specifies maximum copy buffer size in bytes used during compaction::
-
-  [view_compaction]
-  keyvalue_buffer_size = 2097152
-
+   maintenance

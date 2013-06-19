@@ -12,13 +12,14 @@
 
 .. highlight:: ini
 
+====================
+Base CouchDB Options
+====================
+
 .. _config/couchdb:
 
-``[couchdb]`` :: Base CouchDB Options
-=====================================
-
-These options are under ``[couchdb]`` section.
-
+``[couchdb]``
+=============
 
 .. _config/couchdb/attachment_stream_buffer_size:
 

@@ -45,6 +45,8 @@ html_files = \
     html/_images/futon-editeddoc.png \
     html/_images/futon-overview.png \
     html/_images/futon-replform.png \
+    html/_sources/admin/index.txt \
+    html/_sources/admin/maintenance.txt \
     html/_sources/api/authn.txt \
     html/_sources/api/configuration.txt \
     html/_sources/api/database.txt \
@@ -60,7 +62,6 @@ html_files = \
     html/_sources/config/couch-httpd-auth.txt \
     html/_sources/config/couchdb.txt \
     html/_sources/config/daemons.txt \
-    html/_sources/config/database-compaction.txt \
     html/_sources/config/httpd.txt \
     html/_sources/config/index.txt \
     html/_sources/config/log.txt \
@@ -75,7 +76,6 @@ html_files = \
     html/_sources/config/uuids.txt \
     html/_sources/config/vendor.txt \
     html/_sources/config/vhosts.txt \
-    html/_sources/config/view-compaction.txt \
     html/_sources/config/intro.txt \
     html/_sources/config/proxying.txt \
     html/_sources/api-basics.txt \
@@ -112,6 +112,8 @@ html_files = \
     html/_static/up-pressed.png \
     html/_static/up.png \
     html/_static/websupport.js \
+    html/admin/index.html \
+    html/admin/maintenance.html \
     html/api/authn.html \
     html/api/configuration.html \
     html/api/database.html \
@@ -127,7 +129,6 @@ html_files = \
     html/config/couch-httpd-auth.html \
     html/config/couchdb.html \
     html/config/daemons.html \
-    html/config/database-compaction.html \
     html/config/httpd.html \
     html/config/index.html \
     html/config/log.html \
@@ -142,7 +143,6 @@ html_files = \
     html/config/uuids.html \
     html/config/vendor.html \
     html/config/vhosts.html \
-    html/config/view-compaction.html \
     html/config/intro.html \
     html/config/proxying.html \
     html/api-basics.html \
@@ -177,6 +177,8 @@ image_files = \
     ../images/logo.png
 
 src_files = \
+    ../src/admin/index.rst \
+    ../src/admin/maintenance.rst \
     ../src/api/authn.rst \
     ../src/api/configuration.rst \
     ../src/api/database.rst \
@@ -192,7 +194,6 @@ src_files = \
     ../src/config/couch-httpd-auth.rst \
     ../src/config/couchdb.rst \
     ../src/config/daemons.rst \
-    ../src/config/database-compaction.rst \
     ../src/config/httpd.rst \
     ../src/config/index.rst \
     ../src/config/log.rst \
@@ -207,7 +208,6 @@ src_files = \
     ../src/config/uuids.rst \
     ../src/config/vendor.rst \
     ../src/config/vhosts.rst \
-    ../src/config/view-compaction.rst \
     ../src/config/intro.rst \
     ../src/config/proxying.rst \
     ../src/api-basics.rst \
