@@ -26,10 +26,11 @@
 /*define variable for color here, remove to seperate file later*/
 
 @red: #E93F33;
+@darkred: #AF2D24; 
 
 /*nav*/
 @primaryNav : #3A2C2B;
-@navBG: #AF2D24;
+@navBG: @darkred;
 @navBGHighlight: @red;
 @navIconColor: #3A2C2B;
 @navIconHighlight: #FFFFFF;
@@ -50,6 +51,9 @@
 @saveButton: #80A221;
 
 @collapsedNavWidth: 100px;
+@navWidth: 220px;
+
+@sidebarWidth: 330px;
 
 
 /*buttons */
@@ -84,7 +88,7 @@ a:active {
   position: fixed;
   top: 67px;
   display: block;
-  z-index: 10000000000000;
+  z-index: 100000;
   left: 340px;
    .closeMenu & {
     left: 140px;
@@ -107,9 +111,10 @@ a:active {
 
 /* Fixed side navigation */
 #primary-navbar {
+  .box-shadow(inset -7px 0 15px -6px #000);
   height: 100%;
   position: fixed;
-  width: 220px;
+  width: @navWidth;
   top: 0;
   bottom: 0;
   background-color: @primaryNav;
@@ -136,13 +141,13 @@ a:active {
     nav {
       .nav{
         li{
+          .box-shadow(inset -7px 0 15px -6px #000);
           padding: 15px 0px 15px 60px;
           font-size: 19px;
           width: 100%;
           font-weight: normal;
           font-family: helvetica;
-          box-sizing: border-box;
-          -moz-box-sizing: border-box;
+          .box-sizing(border-box);
           background-color: @navBG;
           border-bottom:  1px solid @primaryNav;
           min-height: 55px;
@@ -168,8 +173,7 @@ a:active {
 
 #dashboard {
   position: relative;
-  margin-left: 220px;
-  .box-shadow(-10px 0 15px -6px #333333);
+  margin-left: @navWidth;
   .closeMenu & {
     margin-left: @collapsedNavWidth;
   }
@@ -179,27 +183,33 @@ a:active {
 }
 
 
+/*dashboard content can be in multiple templates*/
 
 #dashboard-content{
   padding: 20px;
   .with-sidebar &{
-    .setLeft(3);
+    padding: 0px;
     bottom: 0px;
     top: 60px;
-    overflow: auto;
-    position: fixed;
+    position: absolute;
+    overflow-y: auto;
+    left: @sidebarWidth;
+    right: 0;
+    .box-sizing(border-box);
   }
   > div.inner {
     display: block;
   }
 }
-#sidebar-content {
+
+.with-sidebar.content-area {
   position: fixed;
-  bottom: 0px;
-  top: 60px;
-  overflow: auto;
-  > div.inner {
-    display: block;
+  top: 0;
+  bottom: 0;
+  left: @navWidth;
+  right: 0;
+  .closeMenu & {
+    left: @collapsedNavWidth;
   }
 }
 
@@ -244,7 +254,51 @@ footer#mainFooter{
   bottom: 0;
 }
 
+/*SIDEBAR TEMPLATE STYLES*/
+.topmenu-defaults {
+  height: 70px;
+  padding: 20px 10px 0;
+  border-bottom: 1px solid @darkred;
+  .box-sizing(border-box);
+}
 
+#dashboard-upper-content{
+  .topmenu-defaults;
+  background-color: #CBCBCB;
+}
+
+#dashboard-lower-content{
+  padding: 20px;
+}
+#sidenav{
+  padding: 0;
+  header {
+    width: @sidebarWidth;
+    .box-shadow(inset -7px 0 15px -6px #000);
+    background: transparent url('../img/linen.png') repeat 0 0;
+    .topmenu-defaults;
+  }
+  nav {
+    .nav-list{
+      a{
+        .box-shadow(inset -7px 0 15px -6px #000);
+        display: block;
+      }
+    }
+  }
+}
+#sidebar-content {
+  .box-shadow(inset -7px 0 15px -6px #000);
+  position: absolute;
+  bottom: 0px;
+  top: 60px;
+  width: @sidebarWidth;
+  left: 0;
+  overflow-y: auto;
+  > div.inner {
+    display: block;
+  }
+}
 
 
 /*ONE PANEL TEMPLATE ONLY STYLES  AKA _all_dbs */
@@ -288,3 +342,32 @@ thead {border-bottom: 2px solid @redButton;}
   }
 }
 
+.select{
+  > a{
+    display: block;
+    padding: 5px 15px 5px 5px;
+    border: 1px solid #989898;
+    position: relative;
+    background-color: #FFFFFF;
+    color: #666666;
+    &:after {
+      content: '';
+      width: 0; 
+      height: 0; 
+      border-left: 7px solid transparent;
+      border-right: 7px solid transparent;
+      border-top: 7px solid #989898;
+      position: absolute;
+      right: 9px;
+      top: 12px;
+    }
+    &:before{
+      content: '';
+      border-left:  1px solid #989898;
+      height: 30px;
+      position: absolute;
+      right: 30px;
+      top: 0;
+    }
+  }
+}

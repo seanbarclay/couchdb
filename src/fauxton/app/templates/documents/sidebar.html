@@ -14,8 +14,8 @@ the License.
 
 <div id="sidenav">
   <header class="row-fluid">
-    <div class="span1">
-      <div class="dropdown">
+    <div class="span5">
+      <div class="dropdown select">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Docs</a>
         <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
           <li><a href="<%= db_url %>">Docs</a></li>
@@ -28,15 +28,15 @@ the License.
       </div>
     </div>
 
-    <div class="span1">
-      <div class="dropdown">
+    <div class="span5 offset1">
+      <div class="dropdown select">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Docs</a>
         <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-          <li><a class="btn btn-small new" id="doc" href="#<%= database.url('app') %>/new">
+          <li><a id="doc" href="#<%= database.url('app') %>/new">
             <i class="icon-file"></i> New doc</a>
           </li>
           <li>
-            <a class="btn btn-small" href="#<%= database.url('app') %>/new_view">New view</a>
+            <a href="#<%= database.url('app') %>/new_view">New view</a>
           </li>
         </ul>
       </div>
