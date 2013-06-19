@@ -262,13 +262,14 @@ footer#mainFooter{
   .box-sizing(border-box);
 }
 
-#dashboard-upper-content{
+#dashboard-upper-menu{
   .topmenu-defaults;
   background-color: #CBCBCB;
 }
 
 #dashboard-lower-content{
   padding: 20px;
+  background-color: #F1F1F1;
 }
 #sidenav{
   padding: 0;
@@ -312,13 +313,10 @@ footer#mainFooter{
   width: 100%;
   margin-bottom: 10px;
 }
-
-
 .navbar-form input{
-  .border-radius(0);
-  padding: 7px;
   margin-top: -5px;
 }
+
 
 /*TABLE STYLES*/
 thead {border-bottom: 2px solid @redButton;}
@@ -370,4 +368,50 @@ thead {border-bottom: 2px solid @redButton;}
       top: 0;
     }
   }
+}
+
+input[type=text],
+.navbar-form input{
+  .border-radius(0);
+  padding: 7px;
+  margin-top: -5px;
+  border: 1px solid #989898;  
+}
+
+
+input[type=checkbox]{
+
+}
+label.fonticon-search {
+  position: relative;
+  &:before {
+    position: absolute;
+    right: -35px;
+    background-color: #E1E1E1;
+    height: 18px;
+    width: 18px;
+    border: 1px solid #989898;
+    padding: 8px;
+    top: -5px;
+  }
+}
+
+/*pretty print*/
+pre.prettyprint { 
+  background: #E5E0DD;
+  border: none;
+}
+
+.prettyprint .str, .prettyprint .lit {
+  color: @red;
+}
+
+.prettyprint .pln, .prettyprint .pun, .prettyprint .typ{
+  color: #333333;
+}
+
+/*ALL DOCS TABLE*/
+tr.all-docs-item{
+  border: none;
+  background: transparent;
 }
