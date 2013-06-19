@@ -27,7 +27,7 @@ function(app, FauxtonAPI, Documents, Databases) {
 
   var DocEditorRouteObject = FauxtonAPI.RouteObject.extend({
     layout: "one_pane",
-
+    disableLoader: true,
     initialize: function(route, masterLayout, options) {
       var databaseName = options[0], docID = options[1];
 
@@ -39,6 +39,7 @@ function(app, FauxtonAPI, Documents, Databases) {
       });
 
       this.tabsView = this.setView("#tabs", new Documents.Views.FieldEditorTabs({
+        disableLoader: true,
         selected: "code_editor",
         model: this.doc
       }));
