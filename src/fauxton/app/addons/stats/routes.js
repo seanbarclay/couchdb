@@ -25,6 +25,10 @@ function(app, FauxtonAPI, Stats) {
       "stats":"showStats",
       "_stats": "showStats"
     },
+    
+    crumbs: [
+      {"name": "Statistics", "link": "_stats"}
+    ],
 
     initialize: function () {
       this.stats = new Stats.Collection();

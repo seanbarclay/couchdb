@@ -28,6 +28,7 @@ function(app, FauxtonAPI, Auth) {
       title: "Auth", 
       href: "#_auth",
       view: Auth.navLink,
+      icon: "fonticon-user",
       establish: [FauxtonAPI.session.fetchUser()]
     });
 

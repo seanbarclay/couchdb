@@ -573,6 +573,18 @@
       margin-left: (@gridColumnWidth * @columns) + (@gridGutterWidth * (@columns + 1));
     }
 
+
+    .setLeftX (@index) when (@index > 0) {
+      (~".setLeft@{index}") { .setLeft(@index); }
+      .setLeftX(@index - 1);
+    }
+    .setLeftX (0) {}
+
+    .setLeft (@columns) {
+      left: (@gridColumnWidth * @columns) + (@gridGutterWidth * (@columns + 1));
+    }
+
+
     .span (@columns) {
       width: (@gridColumnWidth * @columns) + (@gridGutterWidth * (@columns - 1));
     }
@@ -596,6 +608,7 @@
 
     // generate .spanX and .offsetX
     .spanX (@gridColumns);
+    .setLeftX (@gridColumns);
     .offsetX (@gridColumns);
 
   }
@@ -608,12 +621,14 @@
     }
     .spanX (0) {}
 
+
     .offsetX (@index) when (@index > 0) {
       (~'.offset@{index}') { .offset(@index); }
       (~'.offset@{index}:first-child') { .offsetFirstChild(@index); }
       .offsetX(@index - 1);
     }
     .offsetX (0) {}
+
 
     .offset (@columns) {
       margin-left: (@fluidGridColumnWidth * @columns) + (@fluidGridGutterWidth * (@columns - 1)) + (@fluidGridGutterWidth*2);
@@ -628,6 +643,18 @@
     .span (@columns) {
       width: (@fluidGridColumnWidth * @columns) + (@fluidGridGutterWidth * (@columns - 1));
       *width: (@fluidGridColumnWidth * @columns) + (@fluidGridGutterWidth * (@columns - 1)) - (.5 / @gridRowWidth * 100 * 1%);
+    }
+
+    .setLeftX (0){}
+
+    .setLeftX (@index) when (@index > 0) {
+      (~'.setLeft@{index}') { .setLeft(@index); }
+      .setLeftX(@index - 1);
+    }
+
+    .setLeft (@columns) {
+      left: (@fluidGridColumnWidth * @columns) + (@fluidGridGutterWidth * (@columns - 1)) + (@fluidGridGutterWidth*2);
+      *left: (@fluidGridColumnWidth * @columns) + (@fluidGridGutterWidth * (@columns - 1)) - (.5 / @gridRowWidth * 100 * 1%) + (@fluidGridGutterWidth*2) - (.5 / @gridRowWidth * 100 * 1%);
     }
 
     .row-fluid {
@@ -651,6 +678,7 @@
       // generate .spanX and .offsetX
       .spanX (@gridColumns);
       .offsetX (@gridColumns);
+      .setLeftX (@gridColumns);
     }
 
   }
