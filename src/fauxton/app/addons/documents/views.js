@@ -363,11 +363,12 @@ function(app, FauxtonAPI, Components, Documents, Databases, pouchdb,
       this.database = options.database;
       this.selected = !! options.selected;
       this.selector = options.selector;
+      this.ddocType = options.ddocType || this.selector;
     },
 
     serialize: function() {
       return {
-        type:  this.selector,
+        type:  this.ddocType,
         index: this.index,
         ddoc: this.ddoc,
         database: this.database,
@@ -1881,6 +1882,7 @@ function(app, FauxtonAPI, Components, Documents, Databases, pouchdb,
         new Views.DeleteDBModal({database: this.database})
       );
 
+      console.log('tl', this.collection);
       this.collection.each(function(design) {
         if (design.has('doc')){
           this.insertView(new Views.DdocSidenav({
@@ -1935,13 +1937,14 @@ function(app, FauxtonAPI, Components, Documents, Databases, pouchdb,
       event.preventDefault();
       alert("no");
     },
-    buildIndexList: function(collection, selector){
+    buildIndexList: function(collection, selector, ddocType){
       var design = this.model.id.replace(/^_design\//,"");
       _.each(_.keys(collection[selector]), function(key){
         this.insertView(".accordion-body", new Views.IndexItem({
           selector: selector,
           ddoc: design,
           index: key,
+          ddocType: ddocType,
           database: this.model.collection.database.id
         }));
       }, this);
@@ -1964,7 +1967,7 @@ function(app, FauxtonAPI, Components, Documents, Databases, pouchdb,
       var sidebarListTypes = FauxtonAPI.getExtensions('sidebar:list');
           if (ddocDocs){
             //Views
-            this.buildIndexList(ddocDocs, "views");
+            this.buildIndexList(ddocDocs, "views", "view");
             //lists
             // this.buildIndexList(ddocDocs, "lists");
             // //show

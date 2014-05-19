@@ -694,9 +694,14 @@ table.databases {
     .divider {
       border: none;
     }
-    li.active a {
+    > li > a:hover,
+    > li > a:focus{
       background-color: @darkRed;
       color: #fff;
+    }
+
+    li.active a {
+      color: @darkRed;
     }
     > li > a{
       padding: 10px 13px 10px 30px;
@@ -705,6 +710,10 @@ table.databases {
     .dropdown-menu {
       a {
         color: #d9d9d9;
+      }
+
+      &:hover a {
+        color: #fff;
       }
     }
     a{
