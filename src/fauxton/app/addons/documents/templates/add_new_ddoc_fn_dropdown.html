@@ -21,11 +21,8 @@ the License.
 		<%}%>
 		<li class="header-label">Add new</li>
 		<li><a class="icon fonticon-circle-plus" href="#<%= database.url('app') %>/new_view/<%=ddocSafe%>">Secondary View</a><li>
-<!-- 	  <li><a class="icon fonticon-circle-plus" href="#<%= database.url('app') %>/new_filter/<%=ddocSafe%>">Filter Function</a><li>
-	  <li><a class="icon fonticon-circle-plus" href="#<%= database.url('app') %>/new_show/<%=ddocSafe%>">Show Function</a><li>
-	  <li><a class="icon fonticon-circle-plus" href="#<%= database.url('app') %>/new_list/<%=ddocSafe%>">List function</a><li> -->
 	  <% _.each(extensionLinks, function(link) { %>
-			<li><a class="icon fonticon-circle-plus" href="#<%= database.url('app') %>/<%=link.url%>/<%=ddocSafe%>"><%- link.title %></a><li>
+			<li><a class="icon fonticon-circle-plus" href="#<%= database.url('app') %>/<%-link.url%>/<%=ddocSafe%>"><%- link.title %></a><li>
     <%});%>
 	</ul>
 </div>
