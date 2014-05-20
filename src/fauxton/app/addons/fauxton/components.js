@@ -529,6 +529,22 @@ function(app, FauxtonAPI, ace, spin) {
 
   });
 
+  Components.MenuDropDown = FauxtonAPI.View.extend({
+    template: "addons/fauxton/templates/menu_dropdown",
+    className: "dropdown",
+    initialize: function(options){
+      this.links = options.links;
+    },
+    serialize: function(){
+      var sidebarItem = FauxtonAPI.getExtensions('sidebar:links');
+      console.log('linls', this.links);
+      return {
+        links: this.links
+      };
+    }
+  });
+
+
   //need to make this into a backbone view...
   var routeObjectSpinner;
   FauxtonAPI.RouteObject.on('beforeEstablish', function (routeObject) {

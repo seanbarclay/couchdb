@@ -142,8 +142,9 @@ function(app, FauxtonAPI, Components, Documents, Databases) {
       };
     },
     beforeRender: function(manage) {
-      var ddocDocs = this.model.get("doc");
-      var ddocName = this.model.id.replace(/^_design\//,"");
+      var ddocDocs = this.model.get("doc"),
+          ddocName = this.model.id.replace(/^_design\//,""),
+          sideBarMenuLinks = [];
 
       var sidebarListTypes = FauxtonAPI.getExtensions('sidebar:list');
           if (ddocDocs){
@@ -160,32 +161,36 @@ function(app, FauxtonAPI, Components, Documents, Databases) {
               this.buildIndexList(ddocDocs, type);
             },this);
           }
-      this.insertView(".new-button", new Views.NewMenuDropdown({
+       
+     var docSafe = app.utils.safeURLName(ddocName), 
+         database = this.collection.database,
+         links = _.reduce(FauxtonAPI.getExtensions('sidebar:links'), function (menuLinks, link) {
+
+          menuLinks.push({
+            title: link.title,
+            url: "#" + database.url('app') + "/" + link.url + "/" + docSafe,
+            icon: 'fonticon-circle-plus'
+          });
+
+         return menuLinks; 
+     }, [{
+      title: 'Secondary View',
+      url: "#" + database.url('app') + "/new_view/" + docSafe,
+      icon: 'fonticon-circle-plus'
+     }]);
+
+     sideBarMenuLinks.push({
+       title: 'Add new',
+       links: links
+     });
+
+      this.insertView(".new-button", new Components.MenuDropDown({
+        links: sideBarMenuLinks,
         database: this.collection.database,
         ddocSafeName: app.utils.safeURLName(ddocName),
         fullMenu: false
       }));
 
-    }
-  });
-
-  Views.NewMenuDropdown = FauxtonAPI.View.extend({
-    template: "addons/documents/templates/add_new_ddoc_fn_dropdown",
-    tagName: "div",
-    className: "dropdown",
-    initialize: function(options){
-      this.database = options.database;
-      this.fullMenu = options.fullMenu;
-      this.ddocSafeName = options.ddocSafeName || "";
-    },
-    serialize: function(){
-      var sidebarItem = FauxtonAPI.getExtensions('sidebar:links');
-      return {
-        extensionLinks: sidebarItem,
-        database: this.database,
-        ddocSafe: this.ddocSafeName,
-        full:  this.fullMenu
-      };
     }
   });
 
