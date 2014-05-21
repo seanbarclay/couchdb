@@ -529,6 +529,16 @@ function(app, FauxtonAPI, ace, spin) {
 
   });
 
+
+  //Menu Drop down component. It takes links in this format and renders the Dropdown:
+  // [{
+  //  title: 'Section Title (optional)',
+  //  links: [{
+  //    icon: 'icon-class (optional)',
+  //    url: 'clickalble-url',
+  //    title: 'name of link'
+  //  }]
+  // }]
   Components.MenuDropDown = FauxtonAPI.View.extend({
     template: "addons/fauxton/templates/menu_dropdown",
     className: "dropdown",

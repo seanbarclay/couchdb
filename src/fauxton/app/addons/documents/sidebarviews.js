@@ -67,6 +67,30 @@ function(app, FauxtonAPI, Components, Documents, Databases) {
         new Views.DeleteDBModal({database: this.database})
       );
 
+      var database = this.collection.database,
+          newurl = "#" + database.url('app') + '/new';
+
+      var newLinks = [{
+        title: 'Add new',
+        links: [{
+          title: 'New Doc',
+          url: newurl,
+          icon: 'fonticon-circle-plus'
+        },{
+          title: 'New Design Doc',
+          url: newurl,
+          icon: 'fonticon-circle-plus'
+        }]
+      }];
+
+      this.insertView("#new-all-docs-button", new Components.MenuDropDown({
+        links: newLinks,
+      }));
+
+      this.insertView("#new-design-docs-button", new Components.MenuDropDown({
+        links: newLinks,
+      }));
+
       this.collection.each(function(design) {
         if (design.has('doc')){
           this.insertView(new Views.DdocSidenav({
@@ -120,6 +144,7 @@ function(app, FauxtonAPI, Components, Documents, Databases) {
     },
     buildIndexList: function(collection, selector, ddocType){
       var design = this.model.id.replace(/^_design\//,"");
+
       _.each(_.keys(collection[selector]), function(key){
         this.insertView(".accordion-body", new Views.IndexItem({
           selector: selector,
@@ -186,11 +211,7 @@ function(app, FauxtonAPI, Components, Documents, Databases) {
 
       this.insertView(".new-button", new Components.MenuDropDown({
         links: sideBarMenuLinks,
-        database: this.collection.database,
-        ddocSafeName: app.utils.safeURLName(ddocName),
-        fullMenu: false
       }));
-
     }
   });
 
@@ -209,15 +230,11 @@ function(app, FauxtonAPI, Components, Documents, Databases) {
 
     serialize: function() {
       return {
+        icon: this.ddocType,
         type:  this.ddocType,
         index: this.index,
         ddoc: this.ddoc,
         database: this.database,
-        // index_clean: app.utils.removeSpecialCharacters(this.index),
-        // ddoc_clean: app.utils.removeSpecialCharacters(this.ddoc),
-        // index_encoded: app.utils.safeURLName(this.index),
-        // ddoc_encoded: app.utils.safeURLName(this.ddoc),
-        // database_encoded: app.utils.safeURLName(this.database),
         selected: this.selected
       };
     },

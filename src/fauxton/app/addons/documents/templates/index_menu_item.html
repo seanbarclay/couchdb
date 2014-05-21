@@ -13,5 +13,8 @@ the License.
 -->
 
 <a id="<%- removeSpecialCharacters(ddoc) %>_<%- removeSpecialCharacters(index) %>" href="#/database/<%- safeURL(database) %>/_design/<%= safeURL(ddoc)%>/_<%=type%>/<%= safeURL(index) %>" class="toggle-view">
-  <%= index %>
+  <% if (icon) { %>
+  <i class="fonticon-<%- icon %>"></i> 
+  <% } %>
+  <%- index %>
 </a>

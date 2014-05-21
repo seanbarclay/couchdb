@@ -700,7 +700,7 @@ table.databases {
       color: #fff;
     }
 
-    li.active a {
+    li.active > a {
       color: @darkRed;
     }
     > li > a{
@@ -728,6 +728,10 @@ table.databases {
       text-shadow: none;
       color: #333333;
       margin-bottom: -4px;
+
+      & > span:hover {
+        color: @red;
+      }
     }
   }
 }
@@ -929,5 +933,28 @@ div.spinner {
   }
   li {
     list-style-type: none;
+  }
+}
+
+div.add-dropdown { 
+
+ position: absolute;
+  right: 15px;
+  .dropdown-menu{
+    left: -82px;
+    padding-bottom: 0;
+    width: auto;
+    min-width: 0;
+    li a {
+      padding: 10px 15px 10px 12px;
+    }
+  }
+  .dropdown-toggle{
+    text-decoration: none;
+  }
+  > a {
+    border-bottom: none;
+    text-decoration: none;
+    font-size: 16px;
   }
 }
