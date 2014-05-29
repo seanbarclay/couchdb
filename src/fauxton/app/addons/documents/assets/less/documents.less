@@ -173,11 +173,6 @@ button.beautify {
   }
   li{
     position: relative;
-    &:hover{
-      a.dropdown-toggle{
-        color: white;
-      }
-    }
     a{
       text-shadow: none;
     }
@@ -203,7 +198,6 @@ button.beautify {
     > .js-collapse-toggle{
       position: relative;
       display: block;
-      color: #333333;
       border-bottom: 1px solid #d3d7db;
       .accordion-list-item:hover {
         p, .fonticon-play{
@@ -213,6 +207,10 @@ button.beautify {
           background-color: @darkRed;
         }
       }
+      .accordion-list-item:hover ~ div.new-button .dropdown-toggle{
+        color: white;
+      }
+
       .accordion-list-item p, .fonticon-play{
         .transition(all 0.25s linear); 
       }
@@ -242,4 +240,7 @@ button.beautify {
     }
   }
 }
+
+
+
 
