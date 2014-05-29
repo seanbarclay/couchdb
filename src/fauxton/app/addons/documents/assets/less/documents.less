@@ -161,6 +161,11 @@ button.beautify {
   margin-bottom: 40px;
   li.nav-header {
     position: relative;
+    &:hover{
+      a.dropdown-toggle{
+        color: white;
+      }
+    }
     .accordion-body{
       &.in {
         border-bottom: 1px solid #d3d7db;
@@ -177,11 +182,20 @@ button.beautify {
         }
       }
     }
-    > span{
+    > div.js-collapse-toggle{
       display: block;
       padding: 10px 13px 10px 30px;
       color: #333333;
       border-bottom: 1px solid #d3d7db;
+      &:hover{
+        span:last-of-type{
+          color: white;
+        }
+      }
+      span:last-of-type{
+        transition: all 0.25s linear;
+        color: #767F89;
+      }
       &:before{
         vertical-align: bottom;
         font-size: 12px;
