@@ -171,6 +171,12 @@ button.beautify {
   .nav-list > .active > a:focus{
     color: white;
   }
+  .nav-list > li > a:hover + div.add-dropdown .dropdown-toggle{
+    color: white;
+  }
+  .dropdown-toggle:hover {
+    color: @linkRed
+  }
   li{
     position: relative;
     a{
@@ -207,10 +213,9 @@ button.beautify {
           background-color: @darkRed;
         }
       }
-      .accordion-list-item:hover ~ div.new-button .dropdown-toggle{
+      .accordion-list-item:hover + div.add-dropdown .dropdown-toggle{
         color: white;
       }
-
       .accordion-list-item p, .fonticon-play{
         .transition(all 0.25s linear); 
       }
