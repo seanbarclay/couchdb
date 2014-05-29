@@ -14,8 +14,10 @@ the License.
 <li class="nav-header">
 	
 	<div  class="js-collapse-toggle" data-toggle="collapse" data-target="#<%= ddoc_clean %>">
-		<span class="fonticon-play"></span>
-		<span><%= designDoc%></span>
+		<div class="accordion-list-item">
+			<div class="fonticon-play"></div>
+			<p><%= designDoc%></p>
+		</div>
 		<div class="new-button add-dropdown"></div>
 	</div>
 	<ul class="accordion-body collapse" id="<%= ddoc_clean %>">

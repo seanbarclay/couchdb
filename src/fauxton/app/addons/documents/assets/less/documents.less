@@ -12,7 +12,7 @@
 /*ALL DOCS TABLE*/
 
 @import "../../../style/assets/less/mixins.less";
-@import "../../../style/assets/less/variables.less";
+@import "../../../../../assets/less/variables.less";
 
 tr.all-docs-item {
   border: none;
@@ -24,7 +24,7 @@ tr.all-docs-item {
     }
 }
 button.beautify {
-	margin-top: 20px;
+  margin-top: 20px;
 }
 
 .toggle-btns {
@@ -163,6 +163,14 @@ button.beautify {
 
 .sidenav{
   margin-bottom: 40px;
+  .nav-list > .active > a{
+    text-shadow: none;
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  .nav-list > .active > a:hover,
+  .nav-list > .active > a:focus{
+    color: white;
+  }
   li{
     position: relative;
     &:hover{
@@ -186,40 +194,46 @@ button.beautify {
         padding-left: 55px;
         font-size: 14px;
         &:hover {
-          background-color: #af2d24;
           color: #fff;
           text-decoration: none;
+          background-color: @darkRed;
         }
       }
     }
-    > div.js-collapse-toggle{
+    > .js-collapse-toggle{
       position: relative;
       display: block;
-      padding: 10px 13px 10px 30px;
       color: #333333;
       border-bottom: 1px solid #d3d7db;
-      &:hover{
-        span, span:before{
+      .accordion-list-item:hover {
+        p, .fonticon-play{
           color: white;
         }
+        p{
+          background-color: @darkRed;
+        }
       }
-      span:last-of-type{
-        margin-left: 4px;
-      }
-      span, span:before{
+      .accordion-list-item p, .fonticon-play{
         .transition(all 0.25s linear); 
-        color: #767F89;
       }
-      span:before{
+      .accordion-list-item p{
+        margin: 0;
+        padding: 10px 13px 10px 36px;
+        color: @linkRed;
+      }
+      .fonticon-play{
+        color: @subListGray;
+        position: absolute;
+        display: block;
         vertical-align: bottom;
         font-size: 12px;
-        padding-right: 0px;
-        margin-bottom: 2px;   
+        top: 12px;
+        left: 12px; 
       }
-      &.down span:before {
+      &.down .fonticon-play {
         .rotate(90deg);
       }
-      div.add-dropdown{
+      .add-dropdown{
         right: 15px;
       }
       .dropdown-toggle:hover{
