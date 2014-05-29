@@ -10,6 +10,10 @@
 // License for the specific language governing permissions and limitations under
 // the License.
 /*ALL DOCS TABLE*/
+
+@import "../../../style/assets/less/mixins.less";
+@import "../../../style/assets/less/variables.less";
+
 tr.all-docs-item {
   border: none;
   background: transparent;
@@ -159,13 +163,19 @@ button.beautify {
 
 .sidenav{
   margin-bottom: 40px;
-  li.nav-header {
+  li{
     position: relative;
     &:hover{
       a.dropdown-toggle{
         color: white;
       }
     }
+    a{
+      text-shadow: none;
+    }
+  }
+  li.nav-header {
+    position: relative;
     .accordion-body{
       &.in {
         border-bottom: 1px solid #d3d7db;
@@ -183,30 +193,37 @@ button.beautify {
       }
     }
     > div.js-collapse-toggle{
+      position: relative;
       display: block;
       padding: 10px 13px 10px 30px;
       color: #333333;
       border-bottom: 1px solid #d3d7db;
       &:hover{
-        span:last-of-type{
+        span, span:before{
           color: white;
         }
       }
       span:last-of-type{
-        transition: all 0.25s linear;
+        margin-left: 4px;
+      }
+      span, span:before{
+        .transition(all 0.25s linear); 
         color: #767F89;
       }
-      &:before{
+      span:before{
         vertical-align: bottom;
         font-size: 12px;
-        padding-right: 10px;
-        margin-bottom: 2px;
+        padding-right: 0px;
+        margin-bottom: 2px;   
       }
-      &.down:before {
-        margin-bottom: -2px;
-        transform:rotate(90deg);
-        -ms-transform:rotate(90deg); /* IE 9 */
-        -webkit-transform:rotate(90deg); /* Opera, Chrome, and Safari */
+      &.down span:before {
+        .rotate(90deg);
+      }
+      div.add-dropdown{
+        right: 15px;
+      }
+      .dropdown-toggle:hover{
+        color: @linkRed
       }
     }
   }
