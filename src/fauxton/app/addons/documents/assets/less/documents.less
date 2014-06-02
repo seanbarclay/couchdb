@@ -191,6 +191,9 @@ button.beautify {
       }
       color: #eee;
       margin-left: 0;
+      li.active > a{
+        background-color: rgba(0, 0, 0, 0.05);
+      }
       li a{
         padding-left: 55px;
         font-size: 14px;
@@ -201,6 +204,12 @@ button.beautify {
         }
       }
     }
+    .fonticon-play{
+        color: @subListGray;
+        position: absolute;
+        display: block;
+        vertical-align: bottom;
+      }
     > .js-collapse-toggle{
       position: relative;
       display: block;
@@ -225,10 +234,6 @@ button.beautify {
         color: @linkRed;
       }
       .fonticon-play{
-        color: @subListGray;
-        position: absolute;
-        display: block;
-        vertical-align: bottom;
         font-size: 12px;
         top: 12px;
         left: 12px; 
@@ -243,7 +248,24 @@ button.beautify {
         color: @linkRed
       }
     }
+    > ul.accordion-body{
+      > li {
+        a{
+          padding-left: 36px;
+        }
+        .fonticon-play{
+          font-size: 8px;
+          top: 11px;
+          left: 15px;
+        }
+        .fonticon:before{
+          margin-right: 6px;
+          font-size: 20px;
+        }
+      }
+    }
   }
+  
 }
 
 
