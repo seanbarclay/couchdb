@@ -6,7 +6,7 @@
 
 font_name: fauxtonicon
 css_selector: .fonticon-{{glyph}}
-preprocessor_path: "../img/"
+preprocessor_path: "../fonts/"
 autowidth: false
 no_hash: true
 force: false
@@ -28,7 +28,7 @@ input:
 # --------------------------------------------------------------------------- #
 
 output:
-  fonts: PUT_YOUR_PATH_HERE/fauxton/assets/img                              # required
+  fonts: PUT_YOUR_PATH_HERE/fauxton/assets/fonts                              # required
   # css: PUT_YOUR_PATH_HERE/fauxton/assets/less
   preview: PUT_YOUR_PATH_HERE/fauxton/assets/fonts/styleguide
   icons.less: PUT_YOUR_PATH_HERE/fauxton/assets/less 
