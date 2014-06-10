@@ -22,9 +22,13 @@ Don't forget to update `fontcustom.yml` with the correct paths where it says `PU
 From there, you can run the command `$ fontcustom compile` to compile the svgs located in the ./icons directory into updated fauxtonicon font files. 
 
 It's setup to generate the following 
-1. an `icons.less` file [LOCAL_COUCHDB_REPO]/src/fauxton/assets/less
-2. a `fauxtonicon-preview.html` preview [LOCAL_COUCHDB_REPO]/src/fauxton/assets/fonts/styleguide
-3. font files `fauxtonicon.eot, fauxtonicon.svg, fauxtonicon.ttf, fauxtonicon.woff` in [LOCAL_COUCHDB_REPO]/src/fauxton/assets/fonts/
+- an `icons.less` file [LOCAL_COUCHDB_REPO]/src/fauxton/assets/less
+- a `fauxtonicon-preview.html` preview [LOCAL_COUCHDB_REPO]/src/fauxton/assets/fonts/styleguide
+- font files in [LOCAL_COUCHDB_REPO]/src/fauxton/assets/fonts/
+⋅⋅* `fauxtonicon.eot` 
+⋅⋅* `fauxtonicon.svg`
+⋅⋅* `fauxtonicon.ttf`
+⋅⋅* `fauxtonicon.woff` 
 
 
 For more info on Fontcustom, check out their documenation: [Fontcustom documentation](https://github.com/FontCustom/fontcustom)
