@@ -25,10 +25,10 @@ It's setup to generate the following
 - an `icons.less` file [LOCAL_COUCHDB_REPO]/src/fauxton/assets/less
 - a `fauxtonicon-preview.html` preview [LOCAL_COUCHDB_REPO]/src/fauxton/assets/fonts/styleguide
 - font files in [LOCAL_COUCHDB_REPO]/src/fauxton/assets/fonts/
-* `fauxtonicon.eot` 
-* `fauxtonicon.svg`
-* `fauxtonicon.ttf`
-* `fauxtonicon.woff` 
+  * `fauxtonicon.eot` 
+  * `fauxtonicon.svg`
+  * `fauxtonicon.ttf`
+  * `fauxtonicon.woff` 
 
 
 For more info on Fontcustom, check out their documenation: [Fontcustom documentation](https://github.com/FontCustom/fontcustom)
