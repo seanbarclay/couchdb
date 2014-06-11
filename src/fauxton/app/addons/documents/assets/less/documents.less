@@ -211,7 +211,10 @@ button.beautify {
         display: block;
         vertical-align: bottom;
       }
-    > .js-collapse-toggle{
+    .accordion-header:hover  .fonticon-play {
+            color: white;
+     }
+    > .accordion-header{
       position: relative;
       display: block;
       border-bottom: 1px solid #d3d7db;
@@ -271,13 +274,6 @@ button.beautify {
       li {
         > a.down .fonticon-play {
           .rotate(90deg);
-        }
-
-        &:hover {
-          .fonticon-play {
-            color: white;
-
-          }
         }
 
       }

@@ -547,7 +547,6 @@ function(app, FauxtonAPI, ace, spin) {
     },
     serialize: function(){
       var sidebarItem = FauxtonAPI.getExtensions('sidebar:links');
-      console.log('linls', this.links);
       return {
         links: this.links
       };
