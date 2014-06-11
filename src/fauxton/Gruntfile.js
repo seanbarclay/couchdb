@@ -87,6 +87,10 @@ module.exports = function(grunt) {
       if(fs.existsSync(imgPath)){
         theAssets.img.push(imgPath + "/**");
       }
+      var fontsPath = root + "/assets/fonts";
+      if(fs.existsSync(fontsPath)){
+        theAssets.fonts.push(fontsPath + "/**");
+      }
     });
     return theAssets;
   }();
