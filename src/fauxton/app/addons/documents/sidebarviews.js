@@ -75,11 +75,11 @@ function(app, FauxtonAPI, Components, Documents, Databases) {
         links: [{
           title: 'New Doc',
           url: newurl,
-          icon: 'fonticon-circle-plus'
+          icon: 'fonticon-plus-circled'
         },{
           title: 'New Design Doc',
           url: newurl,
-          icon: 'fonticon-circle-plus'
+          icon: 'fonticon-plus-circled'
         }]
       }];
 
@@ -187,14 +187,14 @@ function(app, FauxtonAPI, Components, Documents, Databases) {
           menuLinks.push({
             title: link.title,
             url: "#" + database.url('app') + "/" + link.url + "/" + docSafe,
-            icon: 'fonticon-circle-plus'
+            icon: 'fonticon-plus-circled'
           });
 
          return menuLinks; 
      }, [{
       title: 'Secondary View',
       url: "#" + database.url('app') + "/new_view/" + docSafe,
-      icon: 'fonticon-circle-plus'
+      icon: 'fonticon-plus-circled'
      }]);
 
      sideBarMenuLinks.push({
